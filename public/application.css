@@ -1,0 +1,27 @@
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+form#hit_form {
+float: left;
+margin-right: 10px;
+
+}
+
+form#stay_form {
+float: left;
+margin-right: 10px;
+}
+
+form#double_down_form {
+float: left;
+margin-right: 10px;
+}
+
+img.card_image{
+margin: 5px 5px 5px 5px;
+
+}
+
+

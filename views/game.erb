@@ -91,9 +91,11 @@
            </form>
            <br/>
            <br/>
+           <% if !@show_double_down_button %>
             <form id="double_down_form" action="/game/player/double_down" method="post">
               <input type="submit" class="btn" value="Double Down">
            </form>
+           <% end %>
 
            
          

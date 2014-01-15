@@ -257,7 +257,7 @@ post '/game/player/hit' do
     
   end
   
-  
+  @show_double_down_button = true
     erb :game
   
 end

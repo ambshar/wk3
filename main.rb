@@ -59,9 +59,9 @@ helpers do
 
   def winner!(msg)
     
-      @show_hit_or_stay_buttons = false
+    @show_hit_or_stay_buttons = false
     
-    @success = "<strong> #{session[:player_name]} wins. </strong>#{msg}"
+    @winner = "<strong> #{session[:player_name]} wins. </strong>#{msg}"
     @play_again = true
     @win=true
 
@@ -69,14 +69,14 @@ helpers do
 
   def loser!(msg)
     @show_hit_or_stay_buttons = false
-    @error = "<strong> #{session[:player_name]} loses. </strong>#{msg}"
+    @loser = "<strong> #{session[:player_name]} loses. </strong>#{msg}"
     @play_again = true
     @win=false
   end
 
   def tie!(msg)
     @show_hit_or_stay_buttons = false
-    @success = "<strong> It's a tie. </strong>#{msg}"
+    @winner = "<strong> It's a tie. </strong>#{msg}"
     @play_again = true
     @tie = true
   end
@@ -258,7 +258,7 @@ post '/game/player/hit' do
   end
   
   @show_double_down_button = true
-    erb :game
+    erb :game, layout: false
   
 end
 
@@ -281,7 +281,7 @@ post '/game/player/double_down' do
   if is_busted?(player_total)
     
     loser!("Sorry, looks like #{session[:player_name]} busted at #{player_total}")
-    erb :game
+    erb :game, layout: false
   else
 
     redirect '/game/dealer'
@@ -316,7 +316,7 @@ get '/game/dealer' do
    @show_dealer_hit_button = true
   end
 
-  erb :game
+  erb :game, layout: false
 end
 
 post '/game/dealer/hit' do
